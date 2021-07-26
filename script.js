@@ -2,7 +2,6 @@ async function displayPokemons() {
   try {
     let resp = await fetch("https://pokeapi.co/api/v2/pokemon?limit=50");
     let data = await resp.json();
-    console.log(data.results[0].name);
     createStructure(data);
   } catch (err) {
     console.log(err);
@@ -27,17 +26,32 @@ function createStructure(data) {
 
     let cardBody = createElement("div", "card-body");
 
-    let h2 = createElement("h2", "card-title");
-    h2.innerHTML = element.name;
+    let h4 = createElement("h4", "card-title");
+    h4.innerHTML = element.name.toUpperCase();
 
-    let p = createElement("p", "card-text");
+    let p1 = createElement("h4", "card-text");
+    let p2 = createElement("h4", "card-text");
+    let p3 = createElement("h4", "card-text");
+
+    pokemonData(element.url);
+
+    async function pokemonData(url) {
+      try {
+        let resp = await fetch(url);
+        let data = await resp.json();
+        p1.innerHTML = data.weight;
+        p2.innerHTML = data.abilities[0].ability.name;
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
     function createElement(ele, cname) {
       let element = document.createElement(ele);
       element.setAttribute("class", cname);
       return element;
     }
-    cardBody.append(h2, p);
+    cardBody.append(h4, p1, p2, p3);
     card.append(cardBody);
     col.append(card);
     row.append(col);

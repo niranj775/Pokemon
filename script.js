@@ -45,9 +45,7 @@ function createStructure(data) {
         let resp = await fetch(url);
         let data = await resp.json();
 
-        // data.forEach((ele) => {
-        //   image.setAttribute("src", `${ele.sprites.front_default}`);
-        // });
+        image.setAttribute("src", `${data.sprites.front_default}`);
 
         weight.innerHTML = `WEIGHT:${data.weight}`;
         data.abilities.forEach((ele) => {

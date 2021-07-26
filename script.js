@@ -29,9 +29,9 @@ function createStructure(data) {
     let h4 = createElement("h4", "card-title");
     h4.innerHTML = element.name.toUpperCase();
 
-    let p1 = createElement("h4", "card-text");
-    let p2 = createElement("h4", "card-text");
-    let p3 = createElement("h4", "card-text");
+    let weight = createElement("p", "card-text");
+    let abilities = createElement("p", "card-text");
+    let p3 = createElement("p", "card-text");
 
     pokemonData(element.url);
 
@@ -39,8 +39,9 @@ function createStructure(data) {
       try {
         let resp = await fetch(url);
         let data = await resp.json();
-        p1.innerHTML = data.weight;
-        p2.innerHTML = data.abilities[0].ability.name;
+        weight.innerHTML = `Weight:${data.weight}`;
+        abilities.innerHTML = data.abilities[0].ability.name.toUpperCase();
+        p3.innerHTML = data.moves[0].move.name.toUpperCase();
       } catch (err) {
         console.log(err);
       }
@@ -51,7 +52,7 @@ function createStructure(data) {
       element.setAttribute("class", cname);
       return element;
     }
-    cardBody.append(h4, p1, p2, p3);
+    cardBody.append(h4, weight, abilities, p3);
     card.append(cardBody);
     col.append(card);
     row.append(col);

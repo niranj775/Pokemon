@@ -13,6 +13,11 @@ function createStructure(data) {
 
   let row = createElement("div", "row");
 
+  let title = createElement("div", "font-weight-bold");
+  title.innerHTML = `<h1>POKEMON API</h1>`;
+
+  row.append(title);
+
   function createElement(ele, cname) {
     let element = document.createElement(ele);
     element.setAttribute("class", cname);

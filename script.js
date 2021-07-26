@@ -20,7 +20,10 @@ function createStructure(data) {
   }
 
   data.results.forEach((element) => {
-    let col = createElement("div", "col-4  mb-3");
+    let col = createElement(
+      "div",
+      "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4  mb-3"
+    );
 
     let card = createElement("div", "card h-100");
 

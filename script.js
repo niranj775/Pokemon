@@ -37,7 +37,10 @@ function createStructure(data) {
 
     let image = createElement("img", "card-img-top");
 
-    let h4 = createElement("h4", "card-title");
+    let h4 = createElement(
+      "h4",
+      "card-title bg-dark text-light d-flex justify-content-center"
+    );
     h4.innerHTML = element.name.toUpperCase();
 
     let weight = createElement("p", "card-text");

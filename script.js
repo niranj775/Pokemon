@@ -11,12 +11,13 @@ async function displayPokemons() {
 function createStructure(data) {
   let container = createElement("div", "container");
 
-  let row = createElement("div", "row");
-
-  let title = createElement("div", "font-weight-bold");
+  let title = createElement(
+    "div",
+    "font-weight-bold d-flex justify-content-center"
+  );
   title.innerHTML = `<h1>POKEMON API</h1>`;
 
-  row.append(title);
+  let row = createElement("div", "row");
 
   function createElement(ele, cname) {
     let element = document.createElement(ele);
@@ -83,7 +84,7 @@ function createStructure(data) {
     row.append(col);
   });
 
-  container.append(row);
+  container.append(title, row);
   document.body.append(container);
 }
 

@@ -43,11 +43,13 @@ function createStructure(data) {
     );
     h4.innerHTML = element.name.toUpperCase();
 
-    let weight = createElement("p", "card-text");
-    let abilities = createElement("p", "card-text");
+    let weight = createElement("p", "card-text bg-light");
+
+    let abilities = createElement("p", "card-text bg-light");
     abilities.innerHTML = "ABILITIES";
-    let moves = createElement("p", "card-text");
-    moves.setAttribute("class", "");
+
+    let moves = createElement("p", "card-text bg-light");
+
     moves.innerHTML = "MOVES";
 
     pokemonData(element.url);
@@ -59,7 +61,7 @@ function createStructure(data) {
 
         image.setAttribute("src", `${data.sprites.front_default}`);
 
-        weight.innerHTML = `WEIGHT:${data.weight}`;
+        weight.innerHTML = `WEIGHT: ${data.weight}`;
         data.abilities.forEach((ele) => {
           let allAbility = document.createElement("li");
           allAbility.innerHTML = ele.ability.name;
